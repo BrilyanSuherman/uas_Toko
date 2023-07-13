@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "50785297103",
+    "project_id": "uastoko-1dd43",
+    "storage_bucket": "uastoko-1dd43.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50785297103:android:6ab30f33fe075e4ece0dba",
+        "android_client_info": {
+          "package_name": "com.example.uas_toko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50785297103-oigra2r9f3pt1b09v4jnunoira3kmjlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbLTiYlJavDbHmACI8SmIK75vAYfvV6HM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50785297103-oigra2r9f3pt1b09v4jnunoira3kmjlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

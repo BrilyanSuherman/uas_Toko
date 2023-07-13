@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#E9FF1A"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Get_StartedActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome!"
+            android:textColor="@color/black"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ayo bergabunglah dengan kami sekarang\nbuat akun atau masuk."
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btn_daftar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="35dp"
+            android:text="Daftar"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/bg_btn_stroke"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_masuk"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Masuk"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/bg_btn"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By signing up accept the Terms\nof Service and Privacy Policy."
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:padding="30dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
