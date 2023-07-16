@@ -67,12 +67,12 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/makanan_list_view"
+            android:id="@+id/produk_list_view"
             android:background="#F2F2F2"
             android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/menu_list_layout" />
+            tools:listitem="@layout/produk_list_layout" />
 
     </LinearLayout>
 
