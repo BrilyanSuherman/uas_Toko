@@ -35,8 +35,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/produk_list_view"
             android:background="#F2F2F2"
+            android:layout_gravity="center"
             android:paddingTop="10dp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             tools:listitem="@layout/produk_list_layout" />
 
