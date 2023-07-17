@@ -1,0 +1,13 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item android:drawable="@drawable/baseline_camera_alt_24" android:gravity="center" />-->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#FF4081"
+                android:endColor="#3F51B5"
+                android:angle="45" />
+            <corners android:radius="16dp" />
+        </shape>
+        <item android:drawable="@drawable/baseline_camera_alt_24" android:gravity="center" />
+    </item>
+</layer-list>
