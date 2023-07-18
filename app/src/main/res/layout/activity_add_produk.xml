@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     tools:context=".produk.ProdukDetailActivity">
 
     <LinearLayout
@@ -82,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Harga "
-                android:textColor="@color/red"/>
+                android:textColor="@color/black"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <Button
@@ -90,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:backgroundTint="#2b8236"
+            android:backgroundTint="#fbdc5b"
             android:text="Tambah Produk"
             android:layout_marginBottom="30dp"
             android:textColor="#fff" />

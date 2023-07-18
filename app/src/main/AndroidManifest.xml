@@ -18,6 +18,15 @@
             android:name=".auth.SignUpActivity"
             android:exported="false" />
         <activity
+            android:name=".admin.AdminActivity"
+            android:exported="true"/>
+        <activity android:name=".pesanan.PesananDetailActivity"
+            android:exported="false"/>
+        <activity android:name=".pesanan.AddPesananActivity"
+            android:exported="false"/>
+        <activity android:name=".pesanan.PesananListActivity"
+            android:exported="false"/>
+        <activity
             android:name=".produk.AddProdukActivity"
             android:exported="false"/>
         <activity

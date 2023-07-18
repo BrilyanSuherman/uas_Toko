@@ -1,41 +1,30 @@
-package com.example.uas_toko.produk
+package com.example.uas_toko.pesanan
 
-import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.uas_toko.databinding.ActivityDetailBinding
-import com.example.uas_toko.pesanan.AddPesananActivity
-import com.example.uas_toko.pesanan.PesananDetailActivity
+import com.example.uas_toko.databinding.ActivityDetailPesananBinding
+import com.example.uas_toko.produk.Produk
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
 
-class ProdukDetailActivity : AppCompatActivity () {
+class PesananDetailActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDetailBinding
-
+    private lateinit var binding: ActivityDetailPesananBinding
     private val db = FirebaseFirestore.getInstance()
-
-    private lateinit var activity:AppCompatActivity
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding = ActivityDetailPesananBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val (curr_produk) = setDefaultValue()
 
+
         showFoto()
-
-        binding.BtnBeli.setOnClickListener {
-            activity = it.context as AppCompatActivity
-            activity.startActivity(Intent(activity, PesananDetailActivity::class.java))
-
-        }
     }
 
     fun setDefaultValue(): Array<Any> {
@@ -70,4 +59,6 @@ class ProdukDetailActivity : AppCompatActivity () {
         }
 
     }
-}
+
+    }
+

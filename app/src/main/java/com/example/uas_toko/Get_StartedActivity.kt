@@ -19,10 +19,10 @@ class Get_StartedActivity : AppCompatActivity () {
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.btnDaftar.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.btnDaftar.setOnClickListener {
+//            val intent = Intent(this, SignUpActivity::class.java)
+//            startActivity(intent)
+//        }
 
         binding.btnMasuk.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)

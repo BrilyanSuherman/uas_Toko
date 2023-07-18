@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.uas_toko.MainActivity
+import com.example.uas_toko.admin.AdminActivity
 import com.example.uas_toko.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -35,7 +36,7 @@ class SignInActivity : AppCompatActivity () {
         if (email.isNotEmpty() && password.isNotEmpty()) {
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
                 if(it.isSuccessful) {
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, AdminActivity::class.java)
                     startActivity(intent)
                 }
                 else {
@@ -53,7 +54,7 @@ class SignInActivity : AppCompatActivity () {
         super.onStart()
 
         if(firebaseAuth.currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AdminActivity::class.java)
             startActivity(intent)
         }
     }

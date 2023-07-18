@@ -6,14 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uas_toko.R
+import com.example.uas_toko.pesanan.AddPesananActivity
+import com.example.uas_toko.databinding.ProdukListLayoutBinding
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
 
@@ -22,9 +21,14 @@ class ProdukAdapter (private val produkList: ArrayList<Produk>) :
 
     private lateinit var activity:AppCompatActivity
 
+    private lateinit var binding: ProdukListLayoutBinding
+
+
+
         class ProdukViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val namaproduk: TextView = itemView.findViewById(R.id.TVLNamaProduk)
             val harga:  TextView = itemView.findViewById(R.id.TVLHarga)
+
             val img_produk : ImageView = itemView.findViewById(R.id.IMLGambarMakanan)
         }
 
@@ -33,6 +37,8 @@ class ProdukAdapter (private val produkList: ArrayList<Produk>) :
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.produk_list_layout,parent,false)
         return ProdukViewHolder(itemView)
+
+
     }
 
 
@@ -62,6 +68,12 @@ class ProdukAdapter (private val produkList: ArrayList<Produk>) :
         })
 
     }
+
+//        binding.BtnBeli.setOnClickListener {
+//            activity = it.context as AppCompatActivity
+//            activity.startActivity(Intent(activity, AddPesananActivity::class.java))
+//
+//        }
 }
 
     override fun getItemCount(): Int {

@@ -1,41 +1,57 @@
-package com.example.uas_toko.produk
+package com.example.uas_toko.pesanan
 
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.uas_toko.databinding.ActivityDetailBinding
-import com.example.uas_toko.pesanan.AddPesananActivity
-import com.example.uas_toko.pesanan.PesananDetailActivity
+import com.example.uas_toko.MainActivity
+import com.example.uas_toko.databinding.ActivityAddPesananBinding
+import com.example.uas_toko.produk.Produk
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
 
-class ProdukDetailActivity : AppCompatActivity () {
+class AddPesananActivity : AppCompatActivity () {
 
-    private lateinit var binding: ActivityDetailBinding
+    private lateinit var binding: ActivityAddPesananBinding
 
-    private val db = FirebaseFirestore.getInstance()
+    private val firestoreDatabase = FirebaseFirestore.getInstance()
 
     private lateinit var activity:AppCompatActivity
 
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding = ActivityAddPesananBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val (curr_produk) = setDefaultValue()
 
-        showFoto()
-
-        binding.BtnBeli.setOnClickListener {
+        binding.BtnPesan.setOnClickListener {
             activity = it.context as AppCompatActivity
             activity.startActivity(Intent(activity, PesananDetailActivity::class.java))
 
         }
+
+//        binding.BtnPesan.setOnClickListener { addPesanan () }
+
+        showFoto()
+    }
+
+    fun addPesanan (){
+        var nama : String = binding.TxtAddNama.text.toString()
+
+        val produk: MutableMap<String, Any> = HashMap()
+        produk["nama"] = nama
+
+        firestoreDatabase.collection("produk").add(produk)
+            .addOnSuccessListener {
+                val intentMain = Intent(this, MainActivity::class.java)
+                startActivity(intentMain)
+            }
     }
 
     fun setDefaultValue(): Array<Any> {
@@ -70,4 +86,5 @@ class ProdukDetailActivity : AppCompatActivity () {
         }
 
     }
+
 }

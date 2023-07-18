@@ -65,10 +65,10 @@ class MainActivity : AppCompatActivity() {
 
         produkRecylerView.adapter = produkAdapter
 
-        binding.btnAddProduk.setOnClickListener {
-            val intentMain = Intent(this, AddProdukActivity::class.java)
-            startActivity(intentMain)
-        }
+//        binding.btnAddProduk.setOnClickListener {
+//            val intentMain = Intent(this, AddProdukActivity::class.java)
+//            startActivity(intentMain)
+//        }
 
         load_data()
 
@@ -86,25 +86,25 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        swipeDelete()
+//        swipeDelete()
 
-        binding.bottomNavigation.setOnItemReselectedListener {
-            when (it.itemId) {
-                R.id.nav_bottom_home -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.nav_bottom_setting -> {
-                    val intent = Intent(this, SettingActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.nav_bottom_chat -> {
-                    val intent = Intent(this, ChatActivity::class.java)
-                    startActivity(intent)
-                }
-            }
-            true
-        }
+//        binding.bottomNavigation.setOnItemReselectedListener {
+//            when (it.itemId) {
+//                R.id.nav_bottom_home -> {
+//                    val intent = Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
+//                }
+//                R.id.nav_bottom_setting -> {
+//                    val intent = Intent(this, SettingActivity::class.java)
+//                    startActivity(intent)
+//                }
+//                R.id.nav_bottom_chat -> {
+//                    val intent = Intent(this, ChatActivity::class.java)
+//                    startActivity(intent)
+//                }
+//            }
+//            true
+//        }
 
 
     }
@@ -145,93 +145,93 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun deleteProduk(produk: Produk, doc_id: String) {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("Apakah${produk.namaproduk} ingin dihapus ?")
-            .setCancelable(false)
-            .setPositiveButton("yes") { dialog, id ->
-                lifecycleScope.launch {
-                    db.collection("produk")
-                        .document(doc_id).delete()
+//    private fun deleteProduk(produk: Produk, doc_id: String) {
+//        val builder = AlertDialog.Builder(this)
+//        builder.setMessage("Apakah${produk.namaproduk} ingin dihapus ?")
+//            .setCancelable(false)
+//            .setPositiveButton("yes") { dialog, id ->
+//                lifecycleScope.launch {
+//                    db.collection("produk")
+//                        .document(doc_id).delete()
+//
+//                    deleteFoto("img_produk/${produk.kode}_${produk.namaproduk}.jpg")
+//
+//                    Toast.makeText(
+//                        applicationContext, produk.namaproduk.toString() + "is Deleted",
+//                        Toast.LENGTH_LONG
+//                    )
+//                        .show()
+//                    load_data()
+//                }
+//            }
+//            .setNegativeButton("NO") { dialog, id ->
+//                dialog.dismiss()
+//                load_data()
+//            }
+//        val alert = builder.create()
+//        alert.show()
+//    }
 
-                    deleteFoto("img_produk/${produk.kode}_${produk.namaproduk}.jpg")
+//    private fun swipeDelete() {
+//        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+//            override fun onMove(
+//                recyclerView: RecyclerView,
+//                viewHolder: RecyclerView.ViewHolder,
+//                target: RecyclerView.ViewHolder
+//            ): Boolean {
+//                return false
+//            }
+//
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//                val position = viewHolder.adapterPosition
+//                lifecycleScope.launch {
+//                    val produk = produkArrayList[position]
+//                    val personQuery = db.collection("produk")
+//                        .whereEqualTo("kode", produk.kode)
+//                        .whereEqualTo("namaproduk", produk.namaproduk)
+//                        .whereEqualTo("harga", produk.harga)
+//                        .get()
+//                        .await()
+//
+//                    if (personQuery.documents.isNotEmpty()) {
+//                        for (document in personQuery) {
+//                            try {
+//                                deleteProduk(produk, document.id)
+//                                load_data()
+//                            } catch (e: Exception) {
+//                                withContext(Dispatchers.Main) {
+//                                    Toast.makeText(
+//                                        applicationContext,
+//                                        e.message.toString(), Toast.LENGTH_LONG
+//                                    ).show()
+//                                }
+//                            }
+//                        }
+//                    } else {
+//                        withContext(Dispatchers.Main) {
+//                            Toast.makeText(
+//                                applicationContext, "Produk yang ingin anda hapus tidak ditemukan",
+//                                Toast.LENGTH_LONG
+//                            ).show()
+//                        }
+//                    }
+//                }
+//            }
+//        }).attachToRecyclerView(produkRecylerView)
+//    }
 
-                    Toast.makeText(
-                        applicationContext, produk.namaproduk.toString() + "is Deleted",
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
-                    load_data()
-                }
-            }
-            .setNegativeButton("NO") { dialog, id ->
-                dialog.dismiss()
-                load_data()
-            }
-        val alert = builder.create()
-        alert.show()
-    }
-
-    private fun swipeDelete() {
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.adapterPosition
-                lifecycleScope.launch {
-                    val produk = produkArrayList[position]
-                    val personQuery = db.collection("produk")
-                        .whereEqualTo("kode", produk.kode)
-                        .whereEqualTo("namaproduk", produk.namaproduk)
-                        .whereEqualTo("harga", produk.harga)
-                        .get()
-                        .await()
-
-                    if (personQuery.documents.isNotEmpty()) {
-                        for (document in personQuery) {
-                            try {
-                                deleteProduk(produk, document.id)
-                                load_data()
-                            } catch (e: Exception) {
-                                withContext(Dispatchers.Main) {
-                                    Toast.makeText(
-                                        applicationContext,
-                                        e.message.toString(), Toast.LENGTH_LONG
-                                    ).show()
-                                }
-                            }
-                        }
-                    } else {
-                        withContext(Dispatchers.Main) {
-                            Toast.makeText(
-                                applicationContext, "Produk yang ingin anda hapus tidak ditemukan",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-                }
-            }
-        }).attachToRecyclerView(produkRecylerView)
-    }
-
-    private fun deleteFoto(file_name: String) {
-        val storage = Firebase.storage
-        val storageRef = storage.reference
-        val deleteFileRef = storageRef.child(file_name)
-        if (deleteFileRef != null) {
-            deleteFileRef.delete().addOnSuccessListener {
-                Log.e("deleted", "success")
-            }.addOnFailureListener {
-                Log.e("deleted", "failed")
-            }
-        }
-    }
+//    private fun deleteFoto(file_name: String) {
+//        val storage = Firebase.storage
+//        val storageRef = storage.reference
+//        val deleteFileRef = storageRef.child(file_name)
+//        if (deleteFileRef != null) {
+//            deleteFileRef.delete().addOnSuccessListener {
+//                Log.e("deleted", "success")
+//            }.addOnFailureListener {
+//                Log.e("deleted", "failed")
+//            }
+//        }
+//    }
 }
 
 
