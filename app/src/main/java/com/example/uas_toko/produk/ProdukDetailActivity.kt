@@ -29,11 +29,16 @@ class ProdukDetailActivity : AppCompatActivity () {
         setContentView(binding.root)
         val (curr_produk) = setDefaultValue()
 
+        val produk = Produk()
+
         showFoto()
 
         binding.BtnBeli.setOnClickListener {
             activity = it.context as AppCompatActivity
             activity.startActivity(Intent(activity, PesananDetailActivity::class.java))
+            intent.putExtra("kode", produk.kode.toString())
+            intent.putExtra("namaproduk", produk.namaproduk.toString())
+            intent.putExtra("harga", produk.harga.toString())
 
         }
     }

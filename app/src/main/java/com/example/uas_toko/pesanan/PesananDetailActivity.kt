@@ -43,22 +43,22 @@ class PesananDetailActivity : AppCompatActivity() {
 
     }
 
-    fun showFoto(){
+    fun showFoto() {
         val intent = intent
         val kode = intent.getStringExtra("kode").toString()
         val namaproduk = intent.getStringExtra("namaproduk").toString()
 
 
-        val storageRef = FirebaseStorage.getInstance().reference.child("img_produk/${kode}_${namaproduk}.jpg")
+        val storageRef =
+            FirebaseStorage.getInstance().reference.child("img_produk/${kode}_${namaproduk}.jpg")
         val localfile = File.createTempFile("tempImage", "jpg")
         storageRef.getFile(localfile).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
             binding.IMLGambarMakanan.setImageBitmap(bitmap)
-        }.addOnFailureListener{
+        }.addOnFailureListener {
             Log.e("foto ?", "gagal")
         }
 
     }
-
-    }
+}
 

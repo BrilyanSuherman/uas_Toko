@@ -21,6 +21,7 @@ import com.example.uas_toko.databinding.ActivityAdminBinding
 import com.example.uas_toko.produk.AddProdukActivity
 import com.example.uas_toko.produk.Produk
 import com.example.uas_toko.produk.ProdukAdapter
+import com.example.uas_toko.produk.ProdukAdapterAdmin
 import com.google.firebase.firestore.*
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -35,7 +36,7 @@ class AdminActivity : AppCompatActivity() {
 
     private lateinit var produkRecylerView: RecyclerView
     private lateinit var produkArrayList: ArrayList<Produk>
-    private lateinit var produkAdapter: ProdukAdapter
+    private lateinit var produkAdapteradmin : ProdukAdapterAdmin
     private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,9 +64,9 @@ class AdminActivity : AppCompatActivity() {
         produkRecylerView.setHasFixedSize(true)
 
         produkArrayList = arrayListOf()
-        produkAdapter = ProdukAdapter(produkArrayList)
+        produkAdapteradmin = ProdukAdapterAdmin(produkArrayList)
 
-        produkRecylerView.adapter = produkAdapter
+        produkRecylerView.adapter = produkAdapteradmin
 
         binding.btnAddProduk.setOnClickListener {
             val intentMain = Intent(this, AddProdukActivity::class.java)
@@ -128,7 +129,7 @@ class AdminActivity : AppCompatActivity() {
                     if (dc.type == DocumentChange.Type.ADDED)
                         produkArrayList.add(dc.document.toObject(Produk::class.java))
                 }
-                produkAdapter.notifyDataSetChanged()
+                produkAdapteradmin.notifyDataSetChanged()
             }
         })
     }
@@ -147,7 +148,7 @@ class AdminActivity : AppCompatActivity() {
             for (document in it) {
                 produkArrayList.add(document.toObject(Produk::class.java))
             }
-            produkAdapter.notifyDataSetChanged()
+            produkAdapteradmin.notifyDataSetChanged()
         }
     }
 

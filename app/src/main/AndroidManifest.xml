@@ -32,6 +32,8 @@
         <activity
             android:name=".produk.ProdukDetailActivity"
             android:exported="true"/>
+        <activity android:name=".produk.EditProdukDetailActivity"
+            android:exported="false"/>
         <activity
             android:name=".auth.SignInActivity"
             android:exported="true" />

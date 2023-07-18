@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_above="@id/bottomNavigation"
-            tools:listitem="@layout/produk_list_layout" />
+            tools:listitem="@layout/produk_list_layout_admin" />
 
 
     </LinearLayout>

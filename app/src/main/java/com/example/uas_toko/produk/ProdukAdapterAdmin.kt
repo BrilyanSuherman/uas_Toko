@@ -11,38 +11,29 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uas_toko.R
-import com.example.uas_toko.pesanan.AddPesananActivity
-import com.example.uas_toko.databinding.ProdukListLayoutBinding
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
 
-class ProdukAdapter (private val produkList: ArrayList<Produk>) :
-    RecyclerView.Adapter<ProdukAdapter.ProdukViewHolder>() {
+class ProdukAdapterAdmin (private val produkList: ArrayList<Produk>) :
+    RecyclerView.Adapter<ProdukAdapterAdmin.ProdukViewHolder>() {
 
     private lateinit var activity:AppCompatActivity
 
-    private lateinit var binding: ProdukListLayoutBinding
+    class ProdukViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val namaproduk: TextView = itemView.findViewById(R.id.TVLNamaProduk)
+        val harga: TextView = itemView.findViewById(R.id.TVLHarga)
 
-
-
-        class ProdukViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val namaproduk: TextView = itemView.findViewById(R.id.TVLNamaProduk)
-            val harga:  TextView = itemView.findViewById(R.id.TVLHarga)
-
-            val img_produk : ImageView = itemView.findViewById(R.id.IMLGambarMakanan)
-        }
-
+        val img_produk: ImageView = itemView.findViewById(R.id.IMLGambarMakanan)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdukViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.produk_list_layout,parent,false)
+            .inflate(R.layout.produk_list_layout_admin, parent, false)
         return ProdukViewHolder(itemView)
-
 
     }
 
-
-    override fun onBindViewHolder(holder: ProdukViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProdukAdapterAdmin.ProdukViewHolder, position: Int) {
         val produk: Produk = produkList[position]
         holder.namaproduk.text = produk.namaproduk
         holder.harga.text = produk.harga
@@ -56,23 +47,16 @@ class ProdukAdapter (private val produkList: ArrayList<Produk>) :
         }.addOnFailureListener {
             Log.e("foto ?", "gagal")
         }
+        holder.itemView.setOnClickListener{
+            activity = it.context as AppCompatActivity
+            activity.startActivity(Intent(activity, EditProdukDetailActivity::class.java).apply {
+                putExtra("kode", produk.kode.toString())
+                putExtra("namaproduk", produk.namaproduk.toString())
+                putExtra("harga", produk.harga.toString())
+            })
 
-    holder.itemView.setOnClickListener{
-        activity = it.context as AppCompatActivity
-        activity.startActivity(Intent(activity, ProdukDetailActivity::class.java).apply {
-            putExtra("kode", produk.kode.toString())
-            putExtra("namaproduk", produk.namaproduk.toString())
-            putExtra("harga", produk.harga.toString())
-        })
-
+        }
     }
-
-//        binding.BtnBeli.setOnClickListener {
-//            activity = it.context as AppCompatActivity
-//            activity.startActivity(Intent(activity, AddPesananActivity::class.java))
-//
-//        }
-}
 
     override fun getItemCount(): Int {
         return produkList.size
