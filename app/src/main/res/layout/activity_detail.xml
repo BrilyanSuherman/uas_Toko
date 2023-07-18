@@ -110,6 +110,20 @@
 
 <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
+        <!-- Add the button to navigate to EditProdukDetailActivity -->
+        <Button
+            android:id="@+id/btnEditProduk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Produk"
+            android:layout_below="@id/TVLHarga"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#2b8236"
+            android:textColor="#fff" />
+
     </LinearLayout>
+
+
 
 </RelativeLayout>
