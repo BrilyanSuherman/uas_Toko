@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".produk.EditProdukDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- ImageView for displaying product image -->
+            <ImageView
+                android:id="@+id/btnImgProduk"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_camera_alt_24" />
+
+        </LinearLayout>
+
+        <!-- TextView for displaying "Edit Produk" label -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Edit Produk"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <!-- TextInputLayout and TextInputEditText for Kode Produk -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtKodeProduk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Kode Produk"
+                android:inputType="numberDecimal" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- TextInputLayout and TextInputEditText for Nama Produk -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNamaProduk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Produk" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- TextInputLayout and TextInputEditText for Harga Produk -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtHarga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Harga "
+                android:textColor="@color/red" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Button for saving edited product details -->
+        <Button
+            android:id="@+id/btnSaveProduk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:backgroundTint="#2b8236"
+            android:text="Simpan Perubahan"
+            android:layout_marginTop="30dp"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+</RelativeLayout>

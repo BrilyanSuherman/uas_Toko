@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg3"
-    tools:context=".MainActivity">
+    tools:context=".admin.AdminActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,12 +38,13 @@
             android:layout_gravity="center"
             android:paddingTop="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:listitem="@layout/produk_list_layout" />
+            android:layout_above="@id/bottomNavigation"
+            tools:listitem="@layout/pesanan_list_layout" />
 
 
-
+    </LinearLayout>
 <!--    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -54,7 +55,7 @@
 <!--        android:layout_alignParentBottom="true"-->
 <!--        android:layout_alignParentEnd="true"-->
 <!--        android:padding="5dp"-->
-<!--        android:layout_marginBottom="0dp"-->
+<!--        android:layout_marginBottom="70dp"-->
 <!--        android:layout_marginLeft="210dp"-->
 <!--        android:layout_marginRight="10dp"-->
 <!--        app:icon="@drawable/baseline_add_24"-->
@@ -62,7 +63,15 @@
 <!--        android:layout_gravity="bottom"-->
 <!--        />-->
 
-    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:menu="@menu/menu_bottom"
+        app:elevation="0dp"/>
 
 
 </RelativeLayout>

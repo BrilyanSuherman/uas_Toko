@@ -18,8 +18,29 @@
             android:name=".auth.SignUpActivity"
             android:exported="false" />
         <activity
+            android:name=".admin.AdminActivity"
+            android:exported="true"/>
+        <activity android:name=".pesanan.PesananDetailActivity"
+            android:exported="false"/>
+        <activity android:name=".pesanan.AddPesananActivity"
+            android:exported="false"/>
+        <activity android:name=".pesanan.PesananListActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".produk.AddProdukActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".produk.ProdukDetailActivity"
+            android:exported="true"/>
+        <activity android:name=".produk.EditProdukDetailActivity"
+            android:exported="false"/>
+        <activity
             android:name=".auth.SignInActivity"
             android:exported="true" />
+        <activity android:name=".auth.SettingActivity"
+            android:exported="false"/>
+        <activity android:name=".chat.ChatActivity"
+            android:exported="false"/>
         <activity
             android:name=".Get_StartedActivity"
             android:exported="true"/>

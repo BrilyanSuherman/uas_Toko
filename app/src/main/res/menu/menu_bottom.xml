@@ -7,12 +7,15 @@
         android:id="@+id/nav_bottom_home"/>
 
     <item
-        android:id="@+id/nav_bottom_setting"
-        android:icon="@drawable/baseline_settings_24"
-        android:title="Setting"/>
-
+        android:id="@+id/nav_bottom_pesanan"
+        android:icon="@drawable/baseline_feed_24"
+        android:title="Pesanan"/>
     <item
         android:id="@+id/nav_bottom_chat"
         android:icon="@drawable/ic_baseline_chat_bubble_24"
         android:title="Chat"/>
+    <item
+        android:id="@+id/nav_bottom_setting"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="Setting"/>
 </menu>
